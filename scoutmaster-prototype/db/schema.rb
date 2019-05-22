@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_22_061241) do
+ActiveRecord::Schema.define(version: 2019_05_22_070348) do
+
+  create_table "awards_and_honors", force: :cascade do |t|
+    t.string "award_name"
+    t.string "description"
+    t.date "year"
+    t.string "organization"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.datetime "created_at", null: false
