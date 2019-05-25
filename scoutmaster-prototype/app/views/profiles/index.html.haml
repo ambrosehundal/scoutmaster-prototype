@@ -1,0 +1,66 @@
+%link{:crossorigin => "anonymous", :href => "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", :integrity => "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T", :rel => "stylesheet"}/
+
+.container.container_size
+ 
+  %p 
+  There are 
+  = @user.profiles.count
+  Profiles for this user currently.
+
+  %br
+  %br
+  %br
+
+
+
+
+
+  %br
+  %br
+
+
+Athlete profile
+
+- @user.profiles.each do |f|
+  .container
+    .row
+      %div
+        %p= f.first_name
+        %p= f.last_name
+      %div
+    .row
+      %div
+        %p= f.headline
+      %div{:class => "col-*-*"}
+      %div{:class => "col-*-*"}
+    .row
+    
+
+   
+%br
+%br
+
+
+- if user_signed_in?
+  %p= link_to('Create a new Profile', new_user_profile_path)
+
+
+    
+
+%br
+%br
+%br
+%br
+
+%br
+
+- if user_signed_in?
+  %li You are currently logged in as
+  =@user.email
+  %li
+  = link_to('Logout User', destroy_user_session_path, method: :delete)
+- else
+  %li
+  = link_to('Login', new_user_session_path)
+
+
