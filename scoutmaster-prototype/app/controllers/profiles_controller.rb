@@ -7,7 +7,7 @@ class ProfilesController < ApplicationController
    
     def index
       @user = User.find(params[:user_id])
-      @profile = @user.profiles.all
+      @profile = @user.profile
     end
   
     # GET /awards_and_honors/1
@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
     def new
   #    @user = User.find(params[:user_id])
       @user = current_user
-      @profile = current_user.profiles.new
+      @profile = current_user.build_profile
     end
   
     # GET /awards_and_honors/1/edit
@@ -30,7 +30,7 @@ class ProfilesController < ApplicationController
     # POST /awards_and_honors.json
     def create
       @user = User.find(params[:user_id])
-      @profile = @user.profiles.create(profile_params)
+      @profile = @user.create_profile
       # figure out how to send json to other pages and sites
     #  json_response(@profile)
       redirect_to :action => 'index' 

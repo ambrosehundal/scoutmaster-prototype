@@ -2,10 +2,7 @@
 
 .container.container_size
  
-  %p 
-  There are 
-  = @user.profiles.count
-  Profiles for this user currently.
+  
 
   %br
   %br
@@ -21,16 +18,19 @@
 
 Athlete profile
 
-- @user.profiles.each do |f|
+- @user.profile do |f|
   .container
     .row
       %div
         %p= f.first_name
         %p= f.last_name
+        %p= f.age
+        years
       %div
     .row
       %div
         %p= f.headline
+        %p= f.summary
       %div{:class => "col-*-*"}
       %div{:class => "col-*-*"}
     .row
