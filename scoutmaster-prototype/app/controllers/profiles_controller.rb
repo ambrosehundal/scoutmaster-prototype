@@ -17,8 +17,9 @@ class ProfilesController < ApplicationController
   
     # GET /awards_and_honors/new
     def new
-      @user = User.find(params[:user_id])
-      @profile = @user.profiles.new
+  #    @user = User.find(params[:user_id])
+      @user = current_user
+      @profile = current_user.profiles.new
     end
   
     # GET /awards_and_honors/1/edit
@@ -31,18 +32,8 @@ class ProfilesController < ApplicationController
       @user = User.find(params[:user_id])
       @profile = @user.profiles.create(profile_params)
       # figure out how to send json to other pages and sites
-      json_response(@profile)
-      redirect_to :action => 'index'
-  
-      respond_to do |format|
-        if @awards_and_honor.save
-          format.html { redirect_to @awards_and_honor, notice: 'Awards and honor was successfully created.' }
-          format.json { render :show, status: :created, location: @awards_and_honor }
-        else
-          format.html { render :new }
-          format.json { render json: @awards_and_honor.errors, status: :unprocessable_entity }
-        end
-      end
+    #  json_response(@profile)
+      redirect_to :action => 'index' 
     end
   
     # PATCH/PUT /awards_and_honors/1
