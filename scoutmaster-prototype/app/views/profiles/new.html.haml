@@ -1,0 +1,29 @@
+%h3 Form for creating a new profile
+= form_for @profile, :url => url_for(:controller => 'profiles', :action => 'create') do |form|
+  .form-group
+    %p
+      = form.label :FirstName
+      %br/
+      = form.text_field :first_name
+    %p
+      = form.label :lastName
+      %br/
+      = form.text_field :last_name
+    %p
+      = form.label :Headlines
+      %br/
+      = form.text_field :headlines
+    %p
+      = form.label :Summary
+      %br/
+      = form.text_field :summary
+    %p
+      = form.label :Age
+      %br/
+      = form.number_field :age
+ 
+    %p
+      = form.submit
+%br/
+%br/
+%p Add workout to the user list

@@ -28,7 +28,11 @@ class ProfilesController < ApplicationController
     # POST /awards_and_honors
     # POST /awards_and_honors.json
     def create
-      @awards_and_honor = AwardsAndHonor.new(awards_and_honor_params)
+      @user = User.find(params[:user_id])
+      @profile = @user.profiles.create(profile_params)
+      # figure out how to send json to other pages and sites
+      json_response(@profile)
+      redirect_to :action => 'index'
   
       respond_to do |format|
         if @awards_and_honor.save
@@ -75,6 +79,6 @@ class ProfilesController < ApplicationController
       def profile_params
         params.require(:profile).permit(:first_name, :last_name,  :headline, :summary, :age)
       end
-  end
+
   
 end
