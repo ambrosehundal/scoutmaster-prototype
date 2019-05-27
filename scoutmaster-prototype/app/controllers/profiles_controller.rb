@@ -13,6 +13,7 @@ class ProfilesController < ApplicationController
     # GET /awards_and_honors/1
     # GET /awards_and_honors/1.json
     def show
+      @user = User.find(params[:user_id])
     end
   
     # GET /awards_and_honors/new
