@@ -14,13 +14,16 @@ class ProfilesController < ApplicationController
     # GET /awards_and_honors/1.json
     def show
       @user = User.find(params[:user_id])
+      @profile = @user.profile
+
     end
   
     # GET /awards_and_honors/new
     def new
-  #    @user = User.find(params[:user_id])
-      @user = current_user
-      @profile = current_user.build_profile
+     @user = User.find(params[:user_id])
+    #  @user = current_user
+    #  @profile = current_user.build_profile
+     @profile = Profile.new
     end
   
     # GET /awards_and_honors/1/edit
