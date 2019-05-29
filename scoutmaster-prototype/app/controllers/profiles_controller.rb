@@ -15,7 +15,6 @@ class ProfilesController < ApplicationController
     def show
       @user = User.find(params[:user_id])
       @profile = @user.profile
-
     end
   
     # GET /awards_and_honors/new
@@ -34,10 +33,10 @@ class ProfilesController < ApplicationController
     # POST /awards_and_honors.json
     def create
       @user = User.find(params[:user_id])
-      @profile = @user.create_profile
+      @profile = @user.create_profile(profile_params)
       # figure out how to send json to other pages and sites
     #  json_response(@profile)
-      redirect_to :action => 'index' 
+      redirect_to :action => 'show' 
     end
   
     # PATCH/PUT /awards_and_honors/1

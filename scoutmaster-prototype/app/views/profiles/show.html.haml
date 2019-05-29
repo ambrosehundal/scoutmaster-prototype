@@ -1,0 +1,32 @@
+%link{:crossorigin => "anonymous", :href => "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", :integrity => "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T", :rel => "stylesheet"}/
+
+.container
+  %br
+  %br
+  %br
+  %strong= @user.email
+ 
+  
+  %br
+  %br
+  %table.table.table-striped.table-bordered
+    %thead
+     
+
+    %br
+
+%p
+  Display Profile: #{@user.profile ?  "User has one profile" : "no user profile present!"}
+
+
+
+=@user.profile.headline
+
+- if user_signed_in?
+  %li You are currently logged in as
+  =@user.email
+  %li
+  = link_to('Logout User', destroy_user_session_path, method: :delete)
+- else
+  %li
+  = link_to('Login', new_user_session_path)
