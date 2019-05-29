@@ -6,6 +6,9 @@ ruby '2.2.2'
 #devise
 gem 'devise'
 
+#bootstrap
+gem 'bootstrap', '~> 4.0.0'
+
 #haml
 gem 'haml'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
