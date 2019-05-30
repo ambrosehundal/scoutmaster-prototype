@@ -8,6 +8,7 @@ class ProfilesController < ApplicationController
     def index
       @user = User.find(params[:user_id])
       @profile = @user.profile
+      @awards = @profile.awards_and_honor.all
     end
   
     # GET /awards_and_honors/1

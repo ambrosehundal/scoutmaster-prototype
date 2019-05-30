@@ -14,6 +14,7 @@ class AwardsAndHonorsController < ApplicationController
 
   # GET /awards_and_honors/new
   def new
+    
     @awards_and_honor = AwardsAndHonor.new
   end
 
