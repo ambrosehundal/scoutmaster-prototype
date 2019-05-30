@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     end
 
     def after_sign_up_path_for(user)
-        new_user_profile_path(user)
+        new_user_profiles_path
     end
 
 end

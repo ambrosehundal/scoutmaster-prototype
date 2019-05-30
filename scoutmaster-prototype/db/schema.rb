@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_22_070348) do
+ActiveRecord::Schema.define(version: 2019_05_30_064515) do
 
   create_table "awards_and_honors", force: :cascade do |t|
     t.string "award_name"
     t.string "description"
     t.date "year"
     t.string "organization"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.string "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

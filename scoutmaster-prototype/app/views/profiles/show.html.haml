@@ -5,8 +5,8 @@
 
 
 
-%nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  %a.navbar-brand{:href => "#"} Navbar
+%nav.navbar.navbar-expand-lg.navbar-light
+  %a{:href => "#"} Scoutmaster
   %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
@@ -16,7 +16,9 @@
           Home
           %span.sr-only (current)
       %li.nav-item
-        %a.nav-link{:href => "#"} Link
+        %a.nav-link.disabled{:href => "#"} Profile
+      %li.nav-item
+        %a.nav-link{:href => "#"} Connections
       %li.nav-item.dropdown
         %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
           Dropdown
@@ -26,7 +28,7 @@
           .dropdown-divider
           %a.dropdown-item{:href => "#"} Something else here
       %li.nav-item
-        %a.nav-link.disabled{:href => "#"} Disabled
+        %a.nav-link.disabled{:href => "#"} Jobs
     %form.form-inline.my-2.my-lg-0
       %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
       %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
