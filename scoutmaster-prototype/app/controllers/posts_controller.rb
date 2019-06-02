@@ -4,7 +4,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @user = User.find(params[:user_id])
+    @posts = @user.posts.all
   end
 
   # GET /posts/1
@@ -14,7 +15,8 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @user = User.find(params[:user_id])
+    @post = @user.posts.new
   end
 
   # GET /posts/1/edit
