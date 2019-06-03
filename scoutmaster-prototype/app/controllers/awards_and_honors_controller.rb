@@ -14,8 +14,9 @@ class AwardsAndHonorsController < ApplicationController
 
   # GET /awards_and_honors/new
   def new
-    
-    @awards_and_honor = AwardsAndHonor.new
+    @profile = Profile.find(params[:profile_id])
+
+    @awards_and_honor = @profile.awards_and_honors.new
   end
 
   # GET /awards_and_honors/1/edit
