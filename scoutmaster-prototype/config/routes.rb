@@ -15,5 +15,10 @@ Rails.application.routes.draw do
   resources :users do
     resource :profiles 
   end
+
+
+  resources :profiles do
+    resource :awards_and_honors
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
