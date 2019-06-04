@@ -26,6 +26,8 @@ class AwardsAndHonorsController < ApplicationController
   # POST /awards_and_honors
   # POST /awards_and_honors.json
   def create
+    
+    @profile = Profile.find(params[:profile_id])
     @awards_and_honor = AwardsAndHonor.new(awards_and_honor_params)
 
     respond_to do |format|
