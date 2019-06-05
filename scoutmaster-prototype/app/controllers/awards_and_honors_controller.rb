@@ -4,12 +4,14 @@ class AwardsAndHonorsController < ApplicationController
   # GET /awards_and_honors
   # GET /awards_and_honors.json
   def index
-    @awards_and_honors = AwardsAndHonor.all
+    @profile = Profile.find(params[:profile_id])
+    @awards_and_honors = @profile.awards_and_honors.all
   end
 
   # GET /awards_and_honors/1
   # GET /awards_and_honors/1.json
   def show
+    @profile = Profile.find(params[:profile_id])
   end
 
   # GET /awards_and_honors/new
@@ -26,19 +28,10 @@ class AwardsAndHonorsController < ApplicationController
   # POST /awards_and_honors
   # POST /awards_and_honors.json
   def create
-    
     @profile = Profile.find(params[:profile_id])
-    @awards_and_honor = AwardsAndHonor.new(awards_and_honor_params)
 
-    respond_to do |format|
-      if @awards_and_honor.save
-        format.html { redirect_to @awards_and_honor, notice: 'Awards and honor was successfully created.' }
-        format.json { render :show, status: :created, location: @awards_and_honor }
-      else
-        format.html { render :new }
-        format.json { render json: @awards_and_honor.errors, status: :unprocessable_entity }
-      end
-    end
+    @awards_and_honor = @profile.awards_and_honors.new(awards_and_honor_params)
+    redirect_to :action => 'index' 
   end
 
   # PATCH/PUT /awards_and_honors/1
