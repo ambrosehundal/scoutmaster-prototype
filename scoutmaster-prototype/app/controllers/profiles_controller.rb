@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
     def index
       @user = User.find(params[:user_id])
       @profile = @user.profile
-      @awards = @profile.awards_and_honor.all
+      @awards = @profile.awards_and_honors.all
     end
   
     # GET /awards_and_honors/1
@@ -16,6 +16,7 @@ class ProfilesController < ApplicationController
     def show
       @user = User.find(params[:user_id])
       @profile = @user.profile
+      @awards = @profile.awards_and_honors.all
     end
   
     # GET /awards_and_honors/new
@@ -42,17 +43,7 @@ class ProfilesController < ApplicationController
   
     # PATCH/PUT /awards_and_honors/1
     # PATCH/PUT /awards_and_honors/1.json
-    def update
-      respond_to do |format|
-        if @awards_and_honor.update(awards_and_honor_params)
-          format.html { redirect_to @awards_and_honor, notice: 'Awards and honor was successfully updated.' }
-          format.json { render :show, status: :ok, location: @awards_and_honor }
-        else
-          format.html { render :edit }
-          format.json { render json: @awards_and_honor.errors, status: :unprocessable_entity }
-        end
-      end
-    end
+    
   
     # DELETE /awards_and_honors/1
     # DELETE /awards_and_honors/1.json

@@ -13,11 +13,11 @@ Rails.application.routes.draw do
   end
   
   resources :posts
-  #resources :awards_and_honors
+  resources :awards_and_honors
   
-  #resources :profiles do
-   # resource :awards_and_honors
-  #end
+  resources :profiles do
+    resource :awards_and_honors
+  end
   
 
 

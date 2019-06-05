@@ -76,8 +76,20 @@
       %br
       %br
       %br
-      %li 
-      = link_to "Create new award",  new_profile_awards_and_honors_path(@profile)
+  .row
+    - @awards.each do |awards_and_honor|
+      %tr
+        %td= awards_and_honor.award_name
+        %td= awards_and_honor.description
+        %td= awards_and_honor.year
+        %td= awards_and_honor.organization
+        %td= link_to 'Show', awards_and_honor
+        %td= link_to 'Edit', edit_awards_and_honor_path(awards_and_honor)
+        %td= link_to 'Destroy', awards_and_honor, method: :delete, data: { confirm: 'Are you sure?' }
+
+
+  %li 
+    = link_to "Create new award",  new_profile_awards_and_honors_path(@profile)
 
 
  
@@ -94,20 +106,5 @@
 
 
 
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
 
 

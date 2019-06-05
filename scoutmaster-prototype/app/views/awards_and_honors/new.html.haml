@@ -1,0 +1,23 @@
+%h3 Form for creating a new award
+= form_for @awards_and_honor, :url => url_for(:controller => 'awards_and_honors', :action => 'create') do |form|
+  .form-group
+    .field
+      = form.label :award_name
+      = form.text_field :award_name
+    .field
+      = form.label :description
+      = form.text_field :description
+    .field
+      = form.label :year
+      = form.date_select :year
+    .field
+      = form.label :organization
+      = form.text_field :organization
+    .actions
+      = form.hidden_field :profile_id
+      = form.submit
+
+    
+%br/
+%br/
+%p Add awards to profile

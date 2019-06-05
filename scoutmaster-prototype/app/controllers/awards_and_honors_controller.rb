@@ -4,8 +4,7 @@ class AwardsAndHonorsController < ApplicationController
   # GET /awards_and_honors
   # GET /awards_and_honors.json
   def index
-    @profile = Profile.find(params[:profile_id])
-    @awards_and_honors = @profile.awards_and_honors.all
+    @awards_and_honors = AwardsAndHonor.all
   end
 
   # GET /awards_and_honors/1
@@ -31,6 +30,7 @@ class AwardsAndHonorsController < ApplicationController
     @profile = Profile.find(params[:profile_id])
 
     @awards_and_honor = @profile.awards_and_honors.new(awards_and_honor_params)
+    @awards_and_honor.save
     redirect_to :action => 'index' 
   end
 
