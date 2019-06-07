@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_02_052940) do
+ActiveRecord::Schema.define(version: 2019_06_07_064608) do
 
   create_table "awards_and_honors", force: :cascade do |t|
     t.string "award_name"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 2019_06_02_052940) do
     t.datetime "updated_at", null: false
     t.integer "profile_id"
     t.index ["profile_id"], name: "index_awards_and_honors_on_profile_id"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
